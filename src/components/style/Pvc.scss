@@ -1,0 +1,14 @@
+.AllDoors {
+  display: flex;
+  flex-direction: column;
+  h2 {
+    text-align: center;
+  }
+  .Contemporaines,
+  .Intemporelles,
+  .Lumineuses {
+    height: 15vh;
+    margin: 1%;
+    padding: 2%;
+  }
+}
