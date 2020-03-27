@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Contemporaines,
+  .Intemporelles,
+  .Lumineuses {
+    height: 15vh;
+    margin: 1%;
+    padding: 2%;
+    
+  }

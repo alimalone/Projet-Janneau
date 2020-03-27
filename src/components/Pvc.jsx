@@ -1,9 +1,9 @@
 import React from "react";
 import "./style/Pvc.scss";
+import imgPorteVect from "../imgPorteVect";
 
 
-
-
+const vectPvcCont = imgPorteVect;
 
 export default function Pvc() {
   
@@ -11,8 +11,9 @@ export default function Pvc() {
     <div className="AllDoors">
       <h2>Contemporaines</h2>
       <div className="Contemporaines">
-          
-      
+        
+          { vectPvcCont.map(({src}) => <img src={src} alt={"/"} />
+          )}
         
         
       </div>
