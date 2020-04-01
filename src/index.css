@@ -12,11 +12,14 @@ code {
     monospace;
 }
 
-.Contemporaines,
-  .Intemporelles,
-  .Lumineuses {
+.PVC,
+  .ALUMINIUM,
+  .BOIS {
     height: 15vh;
     margin: 1%;
     padding: 2%;
     
+  }
+  p {
+    font-size: 10px;
   }

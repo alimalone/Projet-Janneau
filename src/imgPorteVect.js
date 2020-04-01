@@ -5,5 +5,4 @@ const vectPvcCont = [
     { id: 2, src: '../vectorielles/2.jpg', alt: "/"},
 ];
 
-
-export default vectPvcCont;      
+export default vectPvcCont;       

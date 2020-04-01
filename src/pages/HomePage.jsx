@@ -1,28 +1,38 @@
+
+
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import Pvc from "../components/Pvc";
-import Aluminium from "../components/Aluminium";
-import Bois from "../components/Bois";
+import { Switch, Route, Link } from "react-router-dom";
+import Contemporaines from "../components/Contemporaines";
+import Intemporelles from "../components/Intemporelles";
+
+
+
+
+
 
 export default function HomePage() {
   return (
     <div className="DoorsHome">
-      <BrowserRouter>
-        <ul>
-          <li>
-            <Link to="/">PVC</Link>
-          </li>
-          <li>
-            <Link to="/Aluminium">Aluminium</Link>
-          </li>
-          <li>
-            <Link to="/Bois">Bois</Link>
-          </li>
-        </ul>
-        <Route exact path="/" component={Pvc} />
-        <Route path="/Aluminium" component={Aluminium} />
-        <Route path="/Bois" component={Bois} />
-      </BrowserRouter>
+      <div className="choice">
+      <Link to="/Contemporaines">
+          <button>Contemporaines</button>
+        </Link>
+        <Link to="/Intemporelles">
+          <button>Intemporelles</button>
+        </Link>
+        
+      
+      </div>
+      
+      
+      <Switch>
+        
+            
+        
+        <Route exact path="/" component={Contemporaines}></Route>
+        <Route path="/Intemporelles" component={Intemporelles}></Route>
+        
+      </Switch>
     </div>
   );
 }
