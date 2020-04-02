@@ -13,7 +13,7 @@ export default function Contemporaines() {
         "https://janneau-config-v2.herokuapp.com//api/v1/models?user_email=marc.fauchreau@janneau.com&user_token=SY7L1Kn1X8-ZKv1VG8cx"
       )
       .then(({ data }) => {
-        setPvc(data)
+        setPvc(data);
         setAlu(data);
       });
   }, []);

@@ -4,25 +4,18 @@ import { Switch, Route } from "react-router-dom";
 
 
 
-function App() {
+export default function App() {
   return (
     
     <div className="App">
-<h1>Logo JANNEAU</h1>
-      <Switch>
-        <Route path="/" component={HomePage} />
-        
-        
-            
-        
-       
+    <h1>Logo JANNEAU</h1>
+    <Switch>
+      <Route path="/" component={HomePage}/>
+    </Switch>
       
-     
-        </Switch>
       
     </div>
   );
 }
 
 
-export default App;
