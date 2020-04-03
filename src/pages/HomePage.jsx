@@ -13,7 +13,7 @@ import ButtonsChoices from "../components/ButtonsChoices";
 
 export default function HomePage() {
   return (
-    <div className="DoorsHome">
+    <div>
       
       <ButtonsChoices/>
       
@@ -23,9 +23,9 @@ export default function HomePage() {
       <Route path="/intemporelles" component={Intemporelles}></Route>
       <Route path="/lumineuses" component={Lumineuses}></Route>
       </Switch>
+      </div>
       
       
-      
-    </div>
+    
   );
 }

@@ -20,15 +20,21 @@ export default function Contemporaines() {
 
   return (
     <div classname="allDoors">
-      
       <h2>PVC</h2>
       <div className="PVC">
         {pvc.PVC.filter((item) => item.cross_range === "Contemporaines").map(
-          (item) => (
-            <p>{item.name}</p>
-          )
+          (item, i) => {
+            return (
+              <div key={i} className="imgName">
+                <img src={`/vectorielles/${item.name}.jpg`}  alt="/" />
+
+               
+              </div>
+            );
+          }
         )}
       </div>
+
       <h2>ALUMINIUM</h2>
       <div className="ALUMINIUM">
         {alu.ALU.filter((item) => item.cross_range === "Contemporaines").map(
@@ -46,3 +52,7 @@ export default function Contemporaines() {
 //const vectPvcCont = imgPorteVect;
 //{ vectPvcCont.map(({src}) => <img src={src} alt={"/"} />
 //         )}
+
+
+
+

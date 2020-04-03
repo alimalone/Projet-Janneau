@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-export default function ButoonsChoices() {
+export default function ButtonsChoices() {
     return (
         <div>
             <Link to="/Contemporaines">
