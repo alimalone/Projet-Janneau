@@ -1,9 +1,23 @@
-.PVC {
-    .imgName {
-        img {
-            width: 30px;
+.allDoors {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+    .PVC {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .imgName {
+            img {
+                width: 30px;
+            }
         }
     }
+
 }
     
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./style/Contemporaines.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -23,15 +25,21 @@ export default function Contemporaines() {
   }, []);
 
   return (
+  
+    
+    
     <div className="allDoors">
+     
+        
       <h2>PVC</h2>
       <div className="PVC">
         {pvc.PVC.filter((item) => item.cross_range === "Contemporaines").map(
           (item, i) => {
             return (
               <div key={i} className="imgName">
+                <Link to={`like/${item.name}`}>
                 <img src={`/vectorielles/${item.name}.jpg`}  alt="/" />
-                <p>{item.name}</p>
+                </Link>
                
               </div>
             );
@@ -42,9 +50,16 @@ export default function Contemporaines() {
       <h2>ALUMINIUM</h2>
       <div className="ALUMINIUM">
         {alu.ALU.filter((item) => item.cross_range === "Contemporaines").map(
-          (item) => (
-            <p>{item.name}</p>
-          )
+          (item, i) =>{
+            return (
+              <div key={i} className="imgName">
+                <img src={`/vectorielles/${item.name}.jpg`}  alt="/" />
+                
+                </div>
+            );
+          } 
+            
+          
         )}
       </div>
     </div>

@@ -1,19 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Contemporaines from "./Contemporaines";
+import Intemporelles from "./Intemporelles";
+import Lumineuses from "./Lumineuses";
 
 
 export default function ButtonsChoices() {
     return (
-        <div>
-            <Link to="/Contemporaines">
-          <button>Contemporaines</button>
-        </Link>
-        <Link to="/Intemporelles">
-          <button>Intemporelles</button>
-        </Link>
-        <Link to="/Lumineuses">
-          <button>Lumineuses</button>
-        </Link>
-        </div>
+      <Switch>
+
+
+      <Route path="/contemporaines" component={Contemporaines}></Route>
+      <Route path="/intemporelles" component={Intemporelles}></Route>
+      <Route path="/lumineuses" component={Lumineuses}></Route>
+      </Switch>
     )
 }
