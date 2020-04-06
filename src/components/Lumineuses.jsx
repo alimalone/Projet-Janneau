@@ -20,7 +20,7 @@ export default function Intemporelles() {
   }, []);
 
   return (
-    <div classname="allDoors">
+    <div className="allDoors">
       <h2>PVC</h2>
       <div className="PVC">
         {pvc.PVC.filter(
@@ -34,7 +34,7 @@ export default function Intemporelles() {
         {alu.ALU.filter(
           (item) => item.cross_range === "Lumineuses"
         ).map((item) => (
-          <ul>{item.name}</ul>
+          <p>{item.name}</p>
         ))}
       </div>
       <h2>BOIS</h2>
@@ -42,7 +42,7 @@ export default function Intemporelles() {
         {bois.BOIS.filter(
           (item) => item.cross_range === "Lumineuses"
         ).map((item) => (
-          <ul>{item.name}</ul>
+          <p>{item.name}</p>
         ))}
       </div>
     </div>

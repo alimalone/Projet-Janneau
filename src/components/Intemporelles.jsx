@@ -18,7 +18,7 @@ export default function Intemporelles() {
   }, []);
 
   return (
-    <div classname="allDoors">
+    <div className="allDoors">
       <h2>PVC</h2>
       <div className="PVC">
         {pvc.PVC.filter(
