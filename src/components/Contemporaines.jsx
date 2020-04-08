@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./style/Contemporaines.css";
 import axios from "axios";
-
 import Popup from "reactjs-popup";
 
-export default function Contemporaines() {
+
+const like = require('./icons/likeIcon.png');
+  const dislike = require('./icons/likeIconHover.png');
+  const doorlike = {like, dislike};
+
+
+
+function Contemporaines() {
   const [pvc, setPvc] = useState({ PVC: [] });
   const [alu, setAlu] = useState({ ALU: [] });
+  
+  
+  
 
   useEffect(() => {
     axios
@@ -18,6 +27,8 @@ export default function Contemporaines() {
         setAlu(data);
       });
   }, []);
+
+  
 
   return (
     <div className="allDoors">
@@ -39,6 +50,8 @@ export default function Contemporaines() {
                   <div className="doorLike">
                     <img src={`/photos/${item.name}.jpg`} alt={item.name} />
                     <p>{item.name}</p>
+                   
+                      
                   </div>
                 </Popup>
               </div>
@@ -64,3 +77,5 @@ export default function Contemporaines() {
 }
 
 
+
+export default Contemporaines;
