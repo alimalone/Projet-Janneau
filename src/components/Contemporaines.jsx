@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./style/Contemporaines.css";
+import DoorCard from "./DoorCard";
+import "./style/Contemporaines.scss";
 import axios from "axios";
-import Popup from "reactjs-popup";
-
-
-const like = require('./icons/likeIcon.png');
-  const dislike = require('./icons/likeIconHover.png');
-  const doorlike = {like, dislike};
-
-
 
 function Contemporaines() {
   const [pvc, setPvc] = useState({ PVC: [] });
   const [alu, setAlu] = useState({ ALU: [] });
-  
-  
-  
 
   useEffect(() => {
     axios
@@ -28,34 +18,13 @@ function Contemporaines() {
       });
   }, []);
 
-  
-
   return (
     <div className="allDoors">
       <h2>PVC</h2>
       <div className="PVC">
         {pvc.PVC.filter((item) => item.cross_range === "Contemporaines").map(
           (item, i) => {
-            return (
-              <div key={i} className="imgName">
-                <Popup
-                  trigger={
-                    <img
-                      src={`/vectorielles/${item.name}.jpg`}
-                      alt={item.name}
-                    />
-                  }
-                  position="right center"
-                >
-                  <div className="doorLike">
-                    <img src={`/photos/${item.name}.jpg`} alt={item.name} />
-                    <p>{item.name}</p>
-                   
-                      
-                  </div>
-                </Popup>
-              </div>
-            );
+            return <DoorCard item={item} key={i} />;
           }
         )}
       </div>
@@ -64,18 +33,12 @@ function Contemporaines() {
       <div className="ALUMINIUM">
         {alu.ALU.filter((item) => item.cross_range === "Contemporaines").map(
           (item, i) => {
-            return (
-              <div key={i} className="imgName">
-                <img src={`/vectorielles/${item.name}.jpg`} alt="/" />
-              </div>
-            );
+            return <DoorCard item={item} key={i} />;
           }
         )}
       </div>
     </div>
   );
 }
-
-
 
 export default Contemporaines;

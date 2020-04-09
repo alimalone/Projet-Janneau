@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./style/Intemporelles.scss";
+import DoorCard from "./DoorCard";
+import "./style/Lumineuses.scss";
 import axios from "axios";
 
 export default function Intemporelles() {
@@ -10,7 +11,7 @@ export default function Intemporelles() {
   useEffect(() => {
     axios
       .get(
-        "https://janneau-config-v2.herokuapp.com//api/v1/models?user_email=marc.fauchreau@janneau.com&user_token=SY7L1Kn1X8-ZKv1VG8cx"
+        "https://cors-anywhere.herokuapp.com/https://janneau-config-v2.herokuapp.com//api/v1/models?user_email=marc.fauchreau@janneau.com&user_token=SY7L1Kn1X8-ZKv1VG8cx"
       )
       .then(({ data }) => {
         setPvc(data);
@@ -23,27 +24,27 @@ export default function Intemporelles() {
     <div className="allDoors">
       <h2>PVC</h2>
       <div className="PVC">
-        {pvc.PVC.filter(
-          (item) => item.cross_range === "Lumineuses"
-        ).map((item) => (
-          <p>{item.name}</p>
-        ))}
+        {pvc.PVC.filter((item) => item.cross_range === "Lumineuses").map(
+          (item, i) => {
+            return <DoorCard item={item} key={i} />;
+          }
+        )}
       </div>
       <h2>ALUMINIUM</h2>
       <div className="ALUMINIUM">
-        {alu.ALU.filter(
-          (item) => item.cross_range === "Lumineuses"
-        ).map((item) => (
-          <p>{item.name}</p>
-        ))}
+        {alu.ALU.filter((item) => item.cross_range === "Lumineuses").map(
+          (item, i) => {
+            return <DoorCard item={item} key={i} />;
+          }
+        )}
       </div>
       <h2>BOIS</h2>
       <div className="BOIS">
-        {bois.BOIS.filter(
-          (item) => item.cross_range === "Lumineuses"
-        ).map((item) => (
-          <p>{item.name}</p>
-        ))}
+        {bois.BOIS.filter((item) => item.cross_range === "Lumineuses").map(
+          (item, i) => {
+            return <DoorCard item={item} key={i} />;
+          }
+        )}
       </div>
     </div>
   );

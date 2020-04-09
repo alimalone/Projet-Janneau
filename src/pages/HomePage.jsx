@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 export default function HomePage() {
   return (
     <div>
-      
+     
       <Link to="/">
           <button>Contemporaines</button>
         </Link>
@@ -21,6 +21,7 @@ export default function HomePage() {
         <Link to="/lumineuses">
           <button>Lumineuses</button>
         </Link>
+       
       </div>
       
       

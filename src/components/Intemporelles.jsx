@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import DoorCard from "./DoorCard";
 import "./style/Intemporelles.scss";
 import axios from "axios";
 
 export default function Intemporelles() {
   const [pvc, setPvc] = useState({ PVC: [] });
-  const [alu, setAlu] = useState({ ALU: []});
+  const [alu, setAlu] = useState({ ALU: [] });
 
   useEffect(() => {
     axios
@@ -21,19 +22,19 @@ export default function Intemporelles() {
     <div className="allDoors">
       <h2>PVC</h2>
       <div className="PVC">
-        {pvc.PVC.filter(
-          (item) => item.cross_range === "Intemporelles"
-        ).map((item) => (
-          <p>{item.name}</p>
-        ))}
+        {pvc.PVC.filter((item) => item.cross_range === "Intemporelles").map(
+          (item, i) =>{
+            return <DoorCard item={item} key={i} />;
+          }
+        )}
       </div>
       <h2>ALUMINIUM</h2>
       <div className="ALUMINIUM">
-        {alu.ALU.filter(
-          (item) => item.cross_range === "Intemporelles"
-        ).map((item) => (
-          <ul>{item.name}</ul>
-        ))}
+        {alu.ALU.filter((item) => item.cross_range === "Intemporelles").map(
+          (item, i) => {
+            return <DoorCard item={item} key={i} />;
+          }
+        )}
       </div>
     </div>
   );
