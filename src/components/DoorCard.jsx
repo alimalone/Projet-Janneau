@@ -2,13 +2,19 @@ import Popup from "reactjs-popup";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+
+
 const white = require("../icons/likeIcon.png");
 const red = require("../icons/likeIconHover.png");
 const heart = { white, red };
 
+
+
+
 export default function DoorCard(props) {
   const vect = `/vectorielles/${props.item.name}.jpg`;
   const photos = `/photos/${props.item.name}.jpg`;
+  
 
   const [selected, setSelected] = useState(heart.white);
 
@@ -23,15 +29,19 @@ export default function DoorCard(props) {
           <img
             src={selected}
             alt=""
-            onClick={(e) => {
+            onClick={() => {
               setSelected(selected === heart.white ? heart.red : heart.white);
             }}
           />
 
           <p>{props.item.name}</p>
-          <Link to={`configurateur/${props.item.name}`}>
-            <button>Personnaliser</button>
-          </Link>
+          
+          
+            <Link to={`configurateur/${props.item.name}`}>
+              <button>Personnaliser</button>
+            </Link>
+            
+          
         </div>
       </Popup>
     </div>

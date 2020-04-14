@@ -1,30 +1,48 @@
-
-
-import React from "react";
-import { Link } from "react-router-dom";
-
-
-
-
-
+import { Route, Switch } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Contemporaines from "../components/Contemporaines";
+import Intemporelles from "../components/Intemporelles";
+import Lumineuses from "../components/Lumineuses";
+import Configurateur from "./Configurateur";
+import axios from "axios";
 
 export default function HomePage() {
+  const [pvc, setPvc] = useState({ PVC: [] });
+  const [alu, setAlu] = useState({ ALU: [] });
+  const [bois, setBois] = useState({ BOIS: [] });
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://janneau-config-v2.herokuapp.com//api/v1/models?user_email=marc.fauchreau@janneau.com&user_token=SY7L1Kn1X8-ZKv1VG8cx"
+      )
+      .then(({ data }) => {
+        setPvc(data);
+        setAlu(data);
+        setBois(data);
+      });
+  }, []);
+
   return (
     <div>
-     
-      <Link to="/">
-          <button>Contemporaines</button>
-        </Link>
-        <Link to="/intemporelles">
-          <button>Intemporelles</button>
-        </Link>
-        <Link to="/lumineuses">
-          <button>Lumineuses</button>
-        </Link>
-       
-      </div>
-      
-      
-    
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props) => <Contemporaines {...props} pvc={pvc} alu={alu} />}
+        />
+        <Route
+          path="/intemporelles"
+          render={(props) => <Intemporelles {...props} pvc={pvc} alu={alu} />}
+        />
+        <Route
+          path="/lumineuses"
+          render={(props) => (
+            <Lumineuses {...props} pvc={pvc} alu={alu} bois={bois} />
+          )}
+        />
+        <Route path="/configurateur/:name" component={Configurateur}></Route>
+      </Switch>
+    </div>
   );
 }
