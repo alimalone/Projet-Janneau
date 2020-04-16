@@ -3,20 +3,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-
 const white = require("../icons/likeIcon.png");
 const red = require("../icons/likeIconHover.png");
 const heart = { white, red };
 
-
-
-
 export default function DoorCard(props) {
   const vect = `/vectorielles/${props.item.name}.jpg`;
   const photos = `/photos/${props.item.name}.jpg`;
-  
-
   const [selected, setSelected] = useState(heart.white);
+  
 
   return (
     <div className="imgName">
@@ -36,12 +31,9 @@ export default function DoorCard(props) {
 
           <p>{props.item.name}</p>
           
-          
-            <Link to={`configurateur/${props.item.name}`}>
-              <button>Personnaliser</button>
-            </Link>
-            
-          
+          <Link to={`configurateur/${props.item.name}`}>
+            <button>Personnaliser</button>
+          </Link>
         </div>
       </Popup>
     </div>

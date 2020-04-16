@@ -3,13 +3,18 @@ import React, { useEffect, useState } from "react";
 import Contemporaines from "../components/Contemporaines";
 import Intemporelles from "../components/Intemporelles";
 import Lumineuses from "../components/Lumineuses";
-import Configurateur from "./Configurateur";
 import axios from "axios";
 
 export default function HomePage() {
-  const [pvc, setPvc] = useState({ PVC: [] });
-  const [alu, setAlu] = useState({ ALU: [] });
-  const [bois, setBois] = useState({ BOIS: [] });
+  const [pvc, setPvc] = useState({
+    PVC: []
+  });
+  const [alu, setAlu] = useState({
+    ALU: []
+  });
+  const [bois, setBois] = useState({
+    BOIS: []
+  });
 
   useEffect(() => {
     axios
@@ -41,7 +46,6 @@ export default function HomePage() {
             <Lumineuses {...props} pvc={pvc} alu={alu} bois={bois} />
           )}
         />
-        <Route path="/configurateur/:name" component={Configurateur}></Route>
       </Switch>
     </div>
   );

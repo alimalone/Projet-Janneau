@@ -13,7 +13,7 @@ function Contemporaines(props) {
       <div className="PVC">
         {props.pvc.PVC.filter((item) => item.cross_range === "Contemporaines").map(
           (item, i) => {
-            return <DoorCard item={item} key={i} />;
+            return <DoorCard item={item}   key={i}/>;
           }
         )}
       </div>
