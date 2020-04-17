@@ -29,3 +29,20 @@
 //};
 
 //connect(mapStateToProps, mapDispatchToProps)
+
+
+/*<div className="colors">{founds.PVC.filter((item)=> item.name === `${name}`).map(
+          (item, i) => {
+              return <div key={i}>{item.unique_code}</div>
+          })}
+</div>
+*/
+
+/*const [door, setDoor] = useState({
+   unique_code: "",
+   name: "",
+  
+   ext_modifiers_positions_values: { color_modifier: "" },
+   int_modifiers_positions_values: {},
+   });
+  const [panel, setPanel] = useState({ choix_panneaux: [] });*/
