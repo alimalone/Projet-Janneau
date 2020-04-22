@@ -8,8 +8,8 @@ const red = require("../icons/likeIconHover.png");
 const heart = { white, red };
 
 export default function DoorCard(props) {
-  const vect = `/vectorielles/${props.item.name}.jpg`;
-  const photos = `/photos/${props.item.name}.jpg`;
+  const vect = `/vectorielles/${props.item.unique_code}.jpg`;
+  const photos = `/photos/${props.item.unique_code}.jpg`;
   const [selected, setSelected] = useState(heart.white);
   
 
@@ -31,7 +31,7 @@ export default function DoorCard(props) {
 
           <p>{props.item.name}</p>
           
-          <Link to={`configurateur/${props.item.name}`}>
+          <Link to={`configurateur/${props.item.unique_code}`}>
             <button>Personnaliser</button>
           </Link>
         </div>

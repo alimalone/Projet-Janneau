@@ -46,3 +46,15 @@
    int_modifiers_positions_values: {},
    });
   const [panel, setPanel] = useState({ choix_panneaux: [] });*/
+
+
+  /*.then(() => {
+    Array.from(ids)
+      .filter((id)=>{
+        if (id.name === `${name}`)
+       {
+        return axios
+          
+      };
+  }, []);
+},[]);*/

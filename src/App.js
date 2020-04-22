@@ -4,11 +4,14 @@ import Configurateur from "./pages/Configurateur";
 import HomePage from "./pages/HomePage";
 import "./App.css";
 
+
+
+
 export default function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/configurateur/:name" component={Configurateur}></Route>
+        <Route path="/configurateur/:unique_code" component={Configurateur}></Route>
         <Route path="/" component={HomePage}></Route>
       </Switch>
     </div>

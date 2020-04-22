@@ -7,13 +7,13 @@ import axios from "axios";
 
 export default function HomePage() {
   const [pvc, setPvc] = useState({
-    PVC: []
+    PVC: [],
   });
   const [alu, setAlu] = useState({
-    ALU: []
+    ALU: [],
   });
   const [bois, setBois] = useState({
-    BOIS: []
+    BOIS: [],
   });
 
   useEffect(() => {
@@ -22,7 +22,6 @@ export default function HomePage() {
         "https://cors-anywhere.herokuapp.com/https://janneau-config-v2.herokuapp.com//api/v1/models?user_email=marc.fauchreau@janneau.com&user_token=SY7L1Kn1X8-ZKv1VG8cx"
       )
       .then(({ data }) => {
-        
         setPvc(data);
         setAlu(data);
         setBois(data);
