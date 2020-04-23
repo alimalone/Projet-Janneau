@@ -42,9 +42,9 @@ export default function HomePage() {
         />
         <Route
           path="/lumineuses"
-          render={(props) => (
+          render={(props) => 
             <Lumineuses {...props} pvc={pvc} alu={alu} bois={bois} />
-          )}
+          }
         />
       </Switch>
     </div>

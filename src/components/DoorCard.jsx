@@ -1,6 +1,7 @@
 import Popup from "reactjs-popup";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./style/DoorCard.scss";
 
 
 const white = require("../icons/likeIcon.png");
@@ -16,11 +17,11 @@ export default function DoorCard(props) {
   return (
     <div className="imgName">
       <Popup
-        trigger={<img src={vect} alt={props.item.name} />}
+        trigger={<img src={vect} alt={props.item.name} id="imgSrc" />}
         position="right center"
       >
         <div className="doorLike">
-          <img src={photos} alt="" />
+          <img src={photos} alt="" id="imgPop" />
           <img
             src={selected}
             alt=""

@@ -1,14 +1,18 @@
 .react-tabs {
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color:  rgb(218, 208, 208);
+    
   
     &__tab-list {
-      border-bottom: 1px solid red;
-      margin: 0 0 10px;
+      border-bottom: 2px solid white;
+      margin: 10px 0 10px;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      
     }
   
     &__tab {
-      display: inline-block;
+      
       border: 1px solid transparent;
       border-bottom: none;
       bottom: -1px;
@@ -18,32 +22,17 @@
       cursor: pointer;
   
       &--selected {
-        background: #fff;
-        border-color: #aaa;
+        background: white;
+        border-color:  white;
         color: black;
         border-radius: 5px 5px 0 0;
+        
+        
       }
   
-      &--disabled {
-        color: GrayText;
-        cursor: default;
-      }
+      
   
-      &:focus {
-        box-shadow: 0 0 5px hsl(208, 99%, 50%);
-        border-color: hsl(208, 99%, 50%);
-        outline: none;
-  
-        &:after {
-          content: "";
-          position: absolute;
-          height: 5px;
-          left: -4px;
-          right: -4px;
-          bottom: -5px;
-          background: #fff;
-        }
-      }
+      
     }
   
     &__tab-panel {

@@ -7,8 +7,9 @@ import './style/React-tabs.scss';
 
 function Contemporaines(props) {
   return (
-    <div className="allDoors">
-      
+    
+    
+    
     <Tabs>
       <NavBar />
       
@@ -24,7 +25,8 @@ function Contemporaines(props) {
             {props.pvc.PVC.filter(
               (item) => item.cross_range === "Contemporaines"
             ).map((item, i) => {
-              return <DoorCard item={item} key={i} />;
+            
+              return  <DoorCard item={item} key={i} />;
             })}
           </div>
         </TabPanel>
@@ -40,7 +42,7 @@ function Contemporaines(props) {
         </TabPanel>
       
     </Tabs>
-    </div>
+    
   );
 }
 
