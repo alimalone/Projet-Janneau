@@ -1,8 +1,47 @@
 .imgName {
+ 
     
     #imgSrc {
       width: 40px;
       height: 80px;
       margin: 10px;
     }
+    #pop {
+      
+      .doorLike{
+      
+        width: 300px;
+   height: 300px;
+   position: absolute;
+   left: 50%;
+   top: 50%; 
+   margin-left: -150px;
+   margin-top: -150px;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+        background-color: grey;
+        #imgHeart {
+          display: flex;
+          justify-content: center;
+          
+          #heart {
+            width: 10%;
+            height: 16%;
+            margin-top: 133px;
+          }
+          #imgPop{
+            width: 80px;
+            height: 160px;
+          }
+        }
+  
+        
+        
+      }
+
+    }
+
+    
   }
