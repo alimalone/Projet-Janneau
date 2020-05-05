@@ -1,74 +1,79 @@
-import React, { useState } from "react";
-//import { connect, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./style/DoorCard.scss";
+import { connect } from 'react-redux';
+import { addFavorite } from '../Reducer/ActionCreators';
 
-const white = require("../icons/likeIcon.png");
-const red = require("../icons/likeIconHover.png");
-const heart = { white, red };
 
-function _toggleFavorite() {
-  const action = { type: "TOGGLE_FAVORITE", value: this.state.film };
-}
 
-export default function DoorCard(props) {
+  
+
+
+  export default function DoorCard(props) {
   const vect = `/vectorielles/${props.item.unique_code}.jpg`;
   const photos = `/photos/${props.item.unique_code}.jpg`;
-  const [selected, setSelected] = useState(heart.white);
-  const [showPopup, setShowPopup] = useState(false);
-  const [img, setImg] = useState(false);
-
-  const imgShow = () => setImg(true);
-  const imgNoShow = () => setImg(false);
-
-  return (
+  const [img, setImg] = useState({selectedOption: vect});
+  const imgSwitch = () => setImg((img) => !img);
+  const [showBigger, setShowBigger] = useState(false);
+  const [fav, setFav] = useState([]);
+  const code = `${props.item.unique_code}`;
+  const handleClick = () => {
+    setFav(fav => [...fav, code])
+    console.log(fav);
+  }
+  
+  
+return (
     <div className="imgName">
       {img ? (
-        <img
-          src={vect}
-          alt={props.item.name}
-          id="imgSrc"
-          onClick={() => setShowPopup(!showPopup)}
-        />
-      ) : (
-        <img
-          src={photos}
-          alt={props.item.name}
-          id="photos"
-          onClick={imgNoShow}
-        />
-      )}
-
-      <div id="pop">
-        {showPopup && (
-          <div className="doorLike">
-            <div id="imgHeart">
-              <img src={photos} alt="" id="imgPop" />
-              <button onClick={imgShow}>
-                <img
-                  src={selected}
-                  id="heart"
-                  alt="like"
-                  onClick={() => {
-                    setSelected(
-                      selected === heart.white ? heart.red : heart.white
-                    );
-                  }}
-                />
-              </button>
-            </div>
-
-            <p>{props.item.name}</p>
-
-            <Link to={`configurateur/${props.item.unique_code}`}>
-              <button>Personnaliser</button>
-            </Link>
-            <button className="close" onClick={() => setShowPopup(false)}>
-              Fermer
-            </button>
+        <div className="vect">
+          <img
+            src={vect}
+            alt={props.item.name}
+            id="imgSrc"
+            onClick={()=> {
+              imgSwitch();
+              handleClick();
+            }}
+          />
+        </div>
+      ):(
+        <div className="photo">
+          <div className="imgButton">
+            <img
+              src={photos}
+              alt={props.item.name}
+              id="photos"
+              onClick={imgSwitch}
+            />
+            <button
+              className="bigger"
+              onClick={() => {
+                setShowBigger(true);
+              }}
+            ></button>
           </div>
-        )}
-      </div>
+          {showBigger && (
+            <div className="biggerPhoto">
+              <button
+                className="close"
+                onClick={() => {
+                  setShowBigger(false);
+                }}
+              >
+                X
+              </button>
+              <img src={photos} alt={props.item.name}   />
+              
+              {props.item.name}
+              <Link to={`configurateur/${props.item.unique_code}`}>
+                <button className="config">Personnaliser</button>
+              </Link>
+              
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

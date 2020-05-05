@@ -1,5 +1,5 @@
 
-import initialState from "../Store/store";
+import initialState from "./configureStore";
 
 
 const reducer = (state = initialState, action) => {

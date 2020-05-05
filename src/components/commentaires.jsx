@@ -1,5 +1,6 @@
 //import { connect, useDispatch } from "react-redux";
 //const dispatch = useDispatch();
+//import { connect, useSelector } from "react-redux";
 
 //const unique_code = `${pvc.PVC.unique_code}`;
 
@@ -58,3 +59,11 @@
       };
   }, []);
 },[]);*/
+
+//function _toggleFavorite() {const action = { type: "TOGGLE_FAVORITE", value: this.state.film };}
+//const imgSwitch = () => setSwitchImg((switchImg) => !switchImg);
+
+//const white = require("../icons/likeIcon.png");
+//const red = require("../icons/likeIconHover.png");
+
+//const [showPopup, setShowPopup] = useState(false);

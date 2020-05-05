@@ -1,9 +1,12 @@
 import React from "react";
 import DoorCard from "./DoorCard";
-import "./style/Contemporaines.scss";
 import NavBar from "../components/NavBar";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./style/React-tabs.scss";
+
+
+
+
 
 function Contemporaines(props) {
   return (

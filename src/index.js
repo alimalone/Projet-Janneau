@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, compose, applyMiddleware } from 'redux';
-import reducer from "./Reducer/reducer";
+import { createStore, combineReducers } from 'redux';
+import allStore from "./Reducer/configureStore";
 import { BrowserRouter} from "react-router-dom";
 import { Provider } from 'react-redux';
 
 
-const createStoreWithMiddleware = compose(applyMiddleware())(createStore);
 
-const store = createStoreWithMiddleware(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+
+const store = createStore(
+  combineReducers({
+    allStore,
+  }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 
 ReactDOM.render(

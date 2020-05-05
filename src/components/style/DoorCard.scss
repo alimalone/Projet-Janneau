@@ -1,47 +1,57 @@
 .imgName {
- 
-    
-    #imgSrc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  margin: 10px;
+
+  .vect,
+  .photo {
+    display: flex;
+    width: 50px;
+    height: 80px;
+    margin: 10px;
+  }
+  .imgButton {
+    width: 40px;
+    height: 80px;
+
+    justify-content: center;
+
+    #photos {
       width: 40px;
       height: 80px;
-      margin: 10px;
     }
-    #pop {
-      
-      .doorLike{
-      
-        width: 300px;
-   height: 300px;
-   position: absolute;
-   left: 50%;
-   top: 50%; 
-   margin-left: -150px;
-   margin-top: -150px;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        flex-direction: column;
-        background-color: grey;
-        #imgHeart {
-          display: flex;
-          justify-content: center;
-          
-          #heart {
-            width: 10%;
-            height: 16%;
-            margin-top: 133px;
-          }
-          #imgPop{
-            width: 80px;
-            height: 160px;
-          }
-        }
-  
-        
-        
-      }
-
+    .bigger {
+      width: 5px;
+      height: 10px;
+      background-color: blue;
+      border: transparent;
+      color: blue;
+      position: absolute;
+      margin-top: 70px;
     }
-
     
   }
+  .biggerPhoto {
+    
+
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  margin-left: -100px; 
+  margin-top: -100px;
+   img{
+     width: 80px;
+     height: 160px;
+   }
+  }
+
+  #imgSrc {
+    width: 40px;
+    height: 80px;
+  }
+}

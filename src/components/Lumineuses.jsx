@@ -1,36 +1,43 @@
 import React from "react";
 import DoorCard from "./DoorCard";
-import "./style/Lumineuses.scss";
 import NavBar from "../components/NavBar";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "./style/React-tabs.scss";
 
-export default function Intemporelles(props) {
+function Lumineuses(props) {
   return (
-    <div className="allDoors">
+    <Tabs>
       <NavBar />
-      <h2>PVC</h2>
-      <div className="PVC">
+
+      <TabList>
+        <Tab>PVC</Tab>
+        <Tab>ALUMINIUM</Tab>
+        <Tab>BOIS</Tab>
+      </TabList>
+
+      <TabPanel>
         {props.pvc.PVC.filter((item) => item.cross_range === "Lumineuses").map(
           (item, i) => {
             return <DoorCard item={item} key={i} />;
           }
         )}
-      </div>
-      <h2>ALUMINIUM</h2>
-      <div className="ALUMINIUM">
+      </TabPanel>
+      <TabPanel>
         {props.alu.ALU.filter((item) => item.cross_range === "Lumineuses").map(
           (item, i) => {
             return <DoorCard item={item} key={i} />;
           }
         )}
-      </div>
-      <h2>BOIS</h2>
-      <div className="BOIS">
+      </TabPanel>
+      <TabPanel>
         {props.bois.BOIS.filter(
           (item) => item.cross_range === "Lumineuses"
         ).map((item, i) => {
           return <DoorCard item={item} key={i} />;
         })}
-      </div>
-    </div>
+      </TabPanel>
+    </Tabs>
   );
 }
+
+export default Lumineuses;
