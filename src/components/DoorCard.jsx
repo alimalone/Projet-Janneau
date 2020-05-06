@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import "./style/DoorCard.scss";
 import { connect } from "react-redux";
 import { doorFavourite, removeFavourite } from "../actions";
+const bigger = require("../icons/bigger.png");
 
 function DoorCard(props) {
   const vect = `/vectorielles/${props.item.unique_code}.jpg`;
   const photos = `/photos/${props.item.unique_code}.jpg`;
+  
   const [img, setImg] = useState(vect);
   const imgSwitch = () => setImg((img) => !img);
+  
   const [showBigger, setShowBigger] = useState(false);
 
   const code = `${props.item.unique_code}`;
@@ -20,6 +23,9 @@ function DoorCard(props) {
       : props.doorFavourite(code);
   };
 
+ 
+ 
+ 
   return (
     <div className="imgName">
       {img ? (
@@ -43,12 +49,13 @@ function DoorCard(props) {
               id="photos"
               onClick={() => imgSwitch()}
             />
-            <button
+            <img
+            src = {bigger}
               className="bigger"
               onClick={() => {
                 setShowBigger(true);
               }}
-            ></button>
+            />
           </div>
           {showBigger && (
             <div className="biggerPhoto">
