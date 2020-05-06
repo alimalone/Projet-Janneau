@@ -15,7 +15,6 @@
   .imgButton {
     width: 40px;
     height: 80px;
-
     justify-content: center;
 
     #photos {
@@ -30,6 +29,10 @@
       color: blue;
       position: absolute;
       margin-top: 70px;
+    }
+    #heart{
+      width: 5px;
+      height: 5px;
     }
     
   }

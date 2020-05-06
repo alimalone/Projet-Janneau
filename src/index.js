@@ -3,18 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, combineReducers } from 'redux';
-import allStore from "./Reducer/configureStore";
+import { createStore } from 'redux';
 import { BrowserRouter} from "react-router-dom";
 import { Provider } from 'react-redux';
+import rootReducer from "./reducers";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 
 
 
 const store = createStore(
-  combineReducers({
-    allStore,
-  }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  rootReducer,
+    { itemActions: { favourites: []}},
+    composeWithDevTools()
+);
 
 
 ReactDOM.render(

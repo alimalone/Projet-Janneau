@@ -1,50 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style/DoorCard.scss";
-import { connect } from 'react-redux';
-import { addFavorite } from '../Reducer/ActionCreators';
+import { connect } from "react-redux";
+import { doorFavourite, removeFavourite } from "../actions";
 
-
-
-  
-
-
-  export default function DoorCard(props) {
+function DoorCard(props) {
   const vect = `/vectorielles/${props.item.unique_code}.jpg`;
   const photos = `/photos/${props.item.unique_code}.jpg`;
-  const [img, setImg] = useState({selectedOption: vect});
+  const [img, setImg] = useState(vect);
   const imgSwitch = () => setImg((img) => !img);
   const [showBigger, setShowBigger] = useState(false);
-  const [fav, setFav] = useState([]);
+
   const code = `${props.item.unique_code}`;
-  const handleClick = () => {
-    setFav(fav => [...fav, code])
-    console.log(fav);
-  }
-  
-  
-return (
+  const name = `${props.item.name}`;
+
+  const updateFavourites = (code) => {
+    return props.favourites.find((item) => item === code)
+      ? props.removeFavourite(code)
+      : props.doorFavourite(code);
+  };
+
+  return (
     <div className="imgName">
       {img ? (
         <div className="vect">
           <img
             src={vect}
-            alt={props.item.name}
+            alt={name}
             id="imgSrc"
-            onClick={()=> {
+            onClick={() => {
               imgSwitch();
-              handleClick();
+              updateFavourites(code);
             }}
           />
         </div>
-      ):(
+      ) : (
         <div className="photo">
           <div className="imgButton">
             <img
               src={photos}
-              alt={props.item.name}
+              alt={name}
               id="photos"
-              onClick={imgSwitch}
+              onClick={() => imgSwitch()}
             />
             <button
               className="bigger"
@@ -63,13 +60,11 @@ return (
               >
                 X
               </button>
-              <img src={photos} alt={props.item.name}   />
-              
-              {props.item.name}
-              <Link to={`configurateur/${props.item.unique_code}`}>
+              <img src={photos} alt={name} />
+              <p>{name}</p>
+              <Link to={`configurateur/${code}`}>
                 <button className="config">Personnaliser</button>
               </Link>
-              
             </div>
           )}
         </div>
@@ -77,3 +72,10 @@ return (
     </div>
   );
 }
+const mapStateToProps = (state) => ({
+  favourites: state.itemActions.favourites,
+});
+
+export default connect(mapStateToProps, { doorFavourite, removeFavourite })(
+  DoorCard
+);
