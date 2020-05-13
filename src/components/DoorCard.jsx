@@ -8,10 +8,10 @@ const bigger = require("../icons/bigger.png");
 function DoorCard(props) {
   const vect = `/vectorielles/${props.item.unique_code}.jpg`;
   const photos = `/photos/${props.item.unique_code}.jpg`;
-  
+
   const [img, setImg] = useState(vect);
   const imgSwitch = () => setImg((img) => !img);
-  
+
   const [showBigger, setShowBigger] = useState(false);
 
   const code = `${props.item.unique_code}`;
@@ -23,9 +23,6 @@ function DoorCard(props) {
       : props.doorFavourite(code);
   };
 
- 
- 
- 
   return (
     <div className="imgName">
       {img ? (
@@ -49,13 +46,17 @@ function DoorCard(props) {
               id="photos"
               onClick={() => imgSwitch()}
             />
+            
             <img
-            src = {bigger}
+              src={bigger}
+              alt="bigger"
               className="bigger"
               onClick={() => {
                 setShowBigger(true);
               }}
             />
+           
+            
           </div>
           {showBigger && (
             <div className="biggerPhoto">
@@ -65,7 +66,7 @@ function DoorCard(props) {
                   setShowBigger(false);
                 }}
               >
-                X
+                x
               </button>
               <img src={photos} alt={name} />
               <p>{name}</p>
