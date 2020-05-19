@@ -70,7 +70,7 @@ function DoorCard(props) {
               </button>
               <img src={photos} alt={name} />
               <p>{name}</p>
-              <Link to={`navbarintext/${code}`}>
+              <Link to={`homeConfig/${code}`}>
                 <button className="config">Personnaliser</button>
               </Link>
             </div>
