@@ -4,6 +4,8 @@ import "./style/DoorCard.scss";
 import { connect } from "react-redux";
 import { doorFavourite, removeFavourite } from "../actions";
 const bigger = require("../icons/bigger.png");
+const white = require("../icons/likeIcon.png");
+
 
 function DoorCard(props) {
   const vect = `/vectorielles/${props.item.unique_code}.jpg`;
@@ -33,7 +35,7 @@ function DoorCard(props) {
             id="imgSrc"
             onClick={() => {
               imgSwitch();
-              updateFavourites(code);
+            
             }}
           />
         </div>
@@ -44,9 +46,11 @@ function DoorCard(props) {
               src={photos}
               alt={name}
               id="photos"
-              onClick={() => imgSwitch()}
+              onClick={() => {
+                imgSwitch();
+              }}
             />
-            
+
             <img
               src={bigger}
               alt="bigger"
@@ -55,8 +59,12 @@ function DoorCard(props) {
                 setShowBigger(true);
               }}
             />
-           
-            
+            <img
+              src={white}
+              onClick={() => updateFavourites(code)}
+              alt="heart"
+              className="heart"
+            />
           </div>
           {showBigger && (
             <div className="biggerPhoto">
@@ -70,6 +78,7 @@ function DoorCard(props) {
               </button>
               <img src={photos} alt={name} />
               <p>{name}</p>
+
               <Link to={`homeConfig/${code}`}>
                 <button className="config">Personnaliser</button>
               </Link>

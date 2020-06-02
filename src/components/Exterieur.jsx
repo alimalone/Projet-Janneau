@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import "./style/Exterieur.scss";
 
 export default function Exterieur(props) {
   const { unique_code } = useParams();
   
-  let customDivs = ["customBlanc", "customGris", "customChene"];
+  let customDivs = ["customBlanc", "customGris", "customChene", "customNoyer", "customAcajou", "customRougeFon", "customBleuAcier"];
   let visibleDivId = null;
   function toggleVisibility(divId) {
     if (visibleDivId === divId) {
@@ -42,6 +42,18 @@ export default function Exterieur(props) {
           <button onClick={() => toggleVisibility("customChene")}>
             {props.chene}
           </button>
+          <button onClick={() => toggleVisibility("customNoyer")}>
+            {props.noyer}
+          </button>
+          <button onClick={() => toggleVisibility("customAcajou")}>
+            {props.acajou}
+          </button>
+          <button onClick={() => toggleVisibility("customRougeFon")}>
+            {props.rougeFon}
+          </button>
+          <button onClick={() => toggleVisibility("customBleuAcier")}>
+            {props.bleuAcier}
+          </button>
 
           <div id="customBlanc">
             <h2>Poignées</h2>
@@ -61,6 +73,30 @@ export default function Exterieur(props) {
             <h2>Poignées</h2>
             {props.handlesExt2.map((chene) => {
               return <div>{chene.handle_unique_code}</div>;
+            })}
+          </div>
+          <div id="customNoyer">
+            <h2>Poignées</h2>
+            {props.handlesExt3.map((noyer) => {
+              return <div>{noyer.handle_unique_code}</div>;
+            })}
+          </div>
+          <div id="customAcajou">
+            <h2>Poignées</h2>
+            {props.handlesExt4.map((acajou) => {
+              return <div>{acajou.handle_unique_code}</div>;
+            })}
+          </div>
+          <div id="customRougeFon">
+            <h2>Poignées</h2>
+            {props.handlesExt5.map((rougeFon) => {
+              return <div>{rougeFon.handle_unique_code}</div>;
+            })}
+          </div>
+          <div id="customBleuAcier">
+            <h2>Poignées</h2>
+            {props.handlesExt6.map((bleuAcier) => {
+              return <div>{bleuAcier.handle_unique_code}</div>;
             })}
           </div>
         </div>

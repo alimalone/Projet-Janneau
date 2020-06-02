@@ -3,10 +3,7 @@ import DoorCard from "./DoorCard";
 import NavBar from "../components/NavBar";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./style/React-tabs.scss";
-
-
-
-
+import { connect } from "react-redux";
 
 function Contemporaines(props) {
   return (
@@ -17,6 +14,16 @@ function Contemporaines(props) {
         <Tab>PVC</Tab>
         <Tab>ALUMINIUM</Tab>
       </TabList>
+      <div className="list">
+        <ul>
+          <u>Favourites ({props.favourites.length})</u>
+          <br />
+          <br />
+          {props.favourites.map((item, id) => (
+            <li key={++id}>{item}</li>
+          ))}
+        </ul>
+      </div>
 
       <TabPanel>
         {props.pvc.PVC.filter(
@@ -36,4 +43,8 @@ function Contemporaines(props) {
   );
 }
 
-export default Contemporaines;
+const mapStateToProps = (state) => ({
+  favourites: state.itemActions.favourites,
+});
+
+export default connect(mapStateToProps)(Contemporaines);

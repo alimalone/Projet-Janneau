@@ -15,11 +15,13 @@ const itemActions = (
       const favourites = state.favourites.filter(
         (item) => item !== action.code
       );
+      console.log(favourites);
       return {
         ...state,
         favourites,
       };
     default:
+      
       return state;
   }
 };
