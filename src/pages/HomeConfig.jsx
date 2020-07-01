@@ -40,7 +40,7 @@ export default function HomeConfig() {
   useEffect(() => {
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://janneau-config-v2.herokuapp.com/api/v2/models/${unique_code}?user_email=marc.fauchreau@janneau.com&user_token=SY7L1Kn1X8-ZKv1VG8cx`
+        `https://cors-anywhere.herokuapp.com/https://...`
       )
       .then(({ data }) => {
         setBlanc(
